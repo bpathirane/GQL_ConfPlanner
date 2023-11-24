@@ -9,11 +9,6 @@ namespace ConferencePlanner.GraphQL.Data
         {
         }
 
-        public ApplicationDbContext()
-        {
-            
-        }
-
-        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Speaker> Speakers { get; set; } = default!;
     }
 }
