@@ -6,7 +6,7 @@ namespace ConferencePlanner.GraphQL
 {
     public class Query
     {
-        public IQueryable<Speaker> GetSpeakers([Service] ApplicationDbContext context) =>
+        public IQueryable<Speaker> GetSpeakers(ApplicationDbContext context) =>
             context.Speakers;
     }
 }

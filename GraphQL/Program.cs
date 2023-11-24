@@ -1,14 +1,16 @@
 using ConferencePlanner.GraphQL;
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.Mutations.AddSpeaker;
+using HotChocolate.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=conference.db"));
+builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options => options.UseSqlite("Data Source=conference.db"));
 
 builder.Services
     .AddGraphQLServer()
+    .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
 
