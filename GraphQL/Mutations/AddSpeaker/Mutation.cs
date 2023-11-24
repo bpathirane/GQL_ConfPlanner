@@ -1,4 +1,5 @@
 using ConferencePlanner.GraphQL.Data;
+
 using HotChocolate;
 
 namespace ConferencePlanner.GraphQL.Mutations.AddSpeaker

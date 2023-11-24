@@ -1,6 +1,8 @@
 using System.Linq;
-using HotChocolate;
+
 using ConferencePlanner.GraphQL.Data;
+
+using HotChocolate;
 
 namespace ConferencePlanner.GraphQL
 {

@@ -1,4 +1,5 @@
 using HotChocolate;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace ConferencePlanner.GraphQL.Data

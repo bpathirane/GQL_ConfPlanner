@@ -1,7 +1,9 @@
 using ConferencePlanner.GraphQL;
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.Mutations.AddSpeaker;
+
 using HotChocolate.Data;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
