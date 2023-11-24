@@ -1,5 +1,6 @@
 using ConferencePlanner.GraphQL;
 using ConferencePlanner.GraphQL.Data;
+using ConferencePlanner.GraphQL.DataLoader;
 using ConferencePlanner.GraphQL.Mutations.AddSpeaker;
 
 using HotChocolate.Data;
@@ -14,7 +15,8 @@ builder.Services
     .AddGraphQLServer()
     .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>();
+    .AddMutationType<Mutation>()
+    .AddDataLoader<SpeakerByIdDataLoader>();
 
 var app = builder.Build();
 
