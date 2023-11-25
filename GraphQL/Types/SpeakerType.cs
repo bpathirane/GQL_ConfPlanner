@@ -1,10 +1,7 @@
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.DataLoader;
 
-using HotChocolate;
-using HotChocolate.Execution.Configuration;
 using HotChocolate.Resolvers;
-using HotChocolate.Types;
 
 using Microsoft.EntityFrameworkCore;
 
