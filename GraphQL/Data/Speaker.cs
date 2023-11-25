@@ -18,5 +18,10 @@ namespace ConferencePlanner.GraphQL.Data
 
         public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
     new List<SessionSpeaker>();
+
+        public override string ToString()
+        {
+            return $"{Id} {Name}";
+        }
     }
 }
