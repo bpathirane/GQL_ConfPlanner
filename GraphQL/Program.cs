@@ -2,10 +2,8 @@ using ConferencePlanner.GraphQL;
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.DataLoader;
 using ConferencePlanner.GraphQL.EventListeners;
-using ConferencePlanner.GraphQL.Mutations.AddSpeaker;
+using ConferencePlanner.GraphQL.Speakers;
 using ConferencePlanner.GraphQL.Types;
-
-using HotChocolate.Data;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +24,8 @@ builder.Services
     .AddGraphQLServer()
     .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>()
+    .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<SpeakerMutations>()
     .AddType<SpeakerType>()
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>()
