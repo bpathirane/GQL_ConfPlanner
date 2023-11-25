@@ -29,7 +29,6 @@ builder.Services
     .AddType<SpeakerType>()
     .AddGlobalObjectIdentification()
     .AddQueryFieldToMutationPayloads()
-    // .EnableRelaySupport()
     .AddDataLoader<SpeakerByIdDataLoader>()
     .AddDataLoader<SessionByIdDataLoader>()
     .AddDiagnosticEventListener<CustomExecutionEventListener>()

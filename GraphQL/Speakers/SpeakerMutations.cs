@@ -12,7 +12,7 @@ namespace ConferencePlanner.GraphQL.Speakers
         public async Task<AddSpeakerPayload> AddSpeakerAsync(AddSpeakerInput input, [Service] IDbContextFactory<ApplicationDbContext> dbContextFactory)
         {
             await using var context = await dbContextFactory.CreateDbContextAsync();
-            
+
             var speaker = new Speaker
             {
                 Name = input.Name,

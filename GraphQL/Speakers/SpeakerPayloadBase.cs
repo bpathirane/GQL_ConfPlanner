@@ -13,7 +13,7 @@ namespace ConferencePlanner.GraphQL.Speakers
         protected SpeakerPayloadBase(IReadOnlyList<UserError> errors)
             : base(errors)
         {
-            
+
         }
 
         public Speaker? Speaker { get; }
