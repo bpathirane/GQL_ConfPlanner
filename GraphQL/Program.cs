@@ -27,6 +27,8 @@ builder.Services
     .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
     .AddQueryType(d => d.Name("Query"))
         .AddTypeExtension<SpeakerQueries>()
+        .AddTypeExtension<SessionQueries>()
+        .AddTypeExtension<TrackQueries>()
     .AddMutationType(d => d.Name("Mutation"))
         .AddTypeExtension<SpeakerMutations>()
         .AddTypeExtension<SessionMutations>()

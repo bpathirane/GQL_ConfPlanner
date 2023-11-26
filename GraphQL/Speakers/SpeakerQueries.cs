@@ -9,9 +9,15 @@ namespace ConferencePlanner.GraphQL
         public IQueryable<Speaker> GetSpeakers(ApplicationDbContext context) =>
             context.Speakers;
 
-        public Task<Speaker> GetSpeakerAsync([ID(nameof(Speaker))] int id,
-        SpeakerByIdDataLoader dataLoader,
-        CancellationToken cancellationToken) =>
-        dataLoader.LoadAsync(id, cancellationToken);
+        public Task<Speaker> GetSpeakerByIdAsync([ID(nameof(Speaker))] int id,
+            SpeakerByIdDataLoader dataLoader,
+            CancellationToken cancellationToken) =>
+            dataLoader.LoadAsync(id, cancellationToken);
+
+        public async Task<IEnumerable<Speaker>> GetSpeakersByIdAsync(
+            [ID(nameof(Speaker))] int[] ids,
+            SpeakerByIdDataLoader dataLoader,
+            CancellationToken cancellationToken)
+                => await dataLoader.LoadAsync(ids, cancellationToken);
     }
 }
