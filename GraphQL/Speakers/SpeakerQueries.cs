@@ -3,7 +3,8 @@ using ConferencePlanner.GraphQL.DataLoader;
 
 namespace ConferencePlanner.GraphQL
 {
-    public class Query
+    [ExtendObjectType("Query")]
+    public class SpeakerQueries
     {
         public IQueryable<Speaker> GetSpeakers(ApplicationDbContext context) =>
             context.Speakers;
