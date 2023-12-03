@@ -22,6 +22,20 @@ namespace ConferencePlanner.GraphQL.Types
                 .ResolveWith<TrackResolvers>(t => t.GetSessionsAsync(default!, default!))
                 .UseDbContext<ApplicationDbContext>()
                 .Name("sessions");
+
+            descriptor
+                .Field(t => t.Name)
+                .Use(next => async context =>
+                {
+                    context.Result = "SHORT CIRCUIT";
+                    
+                    await next(context);
+
+                    if (context.Result is string s)
+                    {
+                        context.Result = s.ToUpperInvariant();
+                    }
+                });
         }
 
         private class TrackResolvers
